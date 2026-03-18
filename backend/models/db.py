@@ -84,6 +84,51 @@ class Requirement(Base):
     repository = relationship("Repository", back_populates="requirements")
 
 
+class RequirementCommitMapping(Base):
+    __tablename__ = "requirement_commit_mapping"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    requirement_id = Column(Integer, ForeignKey("requirements.id"), nullable=False)
+    commit_sha = Column(String(40), nullable=False)
+    similarity_score = Column(Float, nullable=False)
+
+    requirement = relationship("Requirement", back_populates="mappings")
+
+
+class DeveloperScore(Base):
+    __tablename__ = "developer_scores"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    repo_id = Column(Integer, ForeignKey("repositories.id"), nullable=False)
+    developer_name = Column(String(200), nullable=False)
+    impact_score = Column(Float, default=0.0)
+    commits_count = Column(Integer, default=0)
+    files_modified = Column(Integer, default=0)
+    lines_changed = Column(Integer, default=0)
+    rank = Column(Integer, nullable=True)
+
+    repository = relationship("Repository", back_populates="developer_scores")
+
+
+class KnowledgeRisk(Base):
+    __tablename__ = "knowledge_risks"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    repo_id = Column(Integer, ForeignKey("repositories.id"), nullable=False)
+    module_name = Column(String(200), nullable=False)
+    owner_name = Column(String(200), nullable=False)
+    ownership_percentage = Column(Float, nullable=False)
+    is_risk = Column(Integer, default=0)  # 0 or 1
+
+    repository = relationship("Repository", back_populates="risks")
+
+
+# Update Repository relationships
+Repository.developer_scores = relationship("DeveloperScore", back_populates="repository", cascade="all, delete-orphan")
+Repository.risks = relationship("KnowledgeRisk", back_populates="repository", cascade="all, delete-orphan")
+Requirement.mappings = relationship("RequirementCommitMapping", back_populates="requirement", cascade="all, delete-orphan")
+
+
 def init_db():
     """Create all tables."""
     Base.metadata.create_all(bind=engine)

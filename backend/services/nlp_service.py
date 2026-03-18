@@ -1,8 +1,7 @@
-"""NLP similarity engine for mapping requirements to commits."""
-
+import faiss
 from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+
 
 # Lazy-loaded model singleton
 _model = None
@@ -23,16 +22,7 @@ def map_requirements_to_commits(
     top_k: int = 5,
 ) -> list[dict]:
     """
-    Map business requirements to commits using semantic similarity.
-
-    Args:
-        requirements: List of requirement text strings
-        commits: List of commit dicts with sha, message, author, date
-        threshold: Minimum similarity score to consider a match (0.45)
-        top_k: Maximum number of matched commits per requirement
-
-    Returns:
-        List of requirement mapping dicts with confidence and matched commits
+    Map business requirements to commits using FAISS vector search.
     """
     if not requirements or not commits:
         return []
@@ -46,36 +36,38 @@ def map_requirements_to_commits(
     if not req_texts or not commit_messages:
         return []
 
-    req_embeddings = model.encode(req_texts, show_progress_bar=False)
-    commit_embeddings = model.encode(commit_messages, show_progress_bar=False)
+    # FAISS requires float32
+    commit_embeddings = model.encode(commit_messages, show_progress_bar=False).astype('float32')
+    req_embeddings = model.encode(req_texts, show_progress_bar=False).astype('float32')
 
-    # Compute similarity matrix: shape (n_requirements, n_commits)
-    similarities = cosine_similarity(req_embeddings, commit_embeddings)
+    # Normalize for cosine similarity via FAISS inner product
+    faiss.normalize_L2(commit_embeddings)
+    faiss.normalize_L2(req_embeddings)
+
+    # Initialize index
+    dimension = commit_embeddings.shape[1]
+    index = faiss.IndexFlatIP(dimension)  # Inner Product on normalized vectors = Cosine Similarity
+    index.add(commit_embeddings)
+
+    # Search
+    scores, indices = index.search(req_embeddings, top_k)
 
     results = []
     for i, req_text in enumerate(req_texts):
-        sim_scores = similarities[i]
-
-        # Get indices where similarity >= threshold
-        matching_indices = np.where(sim_scores >= threshold)[0]
-
-        # Sort by similarity descending
-        matching_indices = matching_indices[np.argsort(-sim_scores[matching_indices])]
-
-        # Take top K
-        top_indices = matching_indices[:top_k]
-
         matched_commits = []
-        for idx in top_indices:
-            commit = commits[idx]
-            score = round(float(sim_scores[idx]) * 100, 1)
-            matched_commits.append({
-                "sha": commit.get("sha", ""),
-                "message": commit.get("message", ""),
-                "author": commit.get("author", ""),
-                "date": commit.get("date", ""),
-                "match_score": score,
-            })
+        for rank in range(top_k):
+            score = float(scores[i][rank])
+            idx = indices[i][rank]
+
+            if score >= threshold and idx != -1:
+                commit = commits[idx]
+                matched_commits.append({
+                    "sha": commit.get("sha", ""),
+                    "message": commit.get("message", ""),
+                    "author": commit.get("author", ""),
+                    "date": commit.get("date", ""),
+                    "match_score": round(score * 100, 1),
+                })
 
         # Overall confidence is the highest match score
         confidence = matched_commits[0]["match_score"] if matched_commits else 0.0

@@ -49,8 +49,10 @@ async def fetch_repo_data(repo_url: str, github_token: str | None = None) -> dic
             params={"per_page": 100},
         )
         if commits_response.status_code == 403 and "rate limit" in commits_response.text.lower():
-            # Graceful Fallback for Demos
-            return _generate_mock_fallback_data(owner, repo)
+            raise Exception(
+                "GitHub API rate limit exceeded. Please provide a GitHub Personal Access Token "
+                "to increase the rate limit. You can create one at https://github.com/settings/tokens"
+            )
 
         if commits_response.status_code != 200:
             raise Exception(

@@ -25,14 +25,17 @@ function DashboardLayout() {
   const [loading, setLoading] = useState(false);
   const [previousPath, setPreviousPath] = useState(location.pathname);
 
+  if (location.pathname !== previousPath) {
+    setLoading(true);
+    setPreviousPath(location.pathname);
+  }
+
   useEffect(() => {
-    if (location.pathname !== previousPath) {
-      setLoading(true);
-      setPreviousPath(location.pathname);
+    if (loading) {
       const timer = setTimeout(() => setLoading(false), 300);
       return () => clearTimeout(timer);
     }
-  }, [location.pathname, previousPath]);
+  }, [loading]);
 
   // Active page for sidebar
   const activePage = location.pathname.split('/').pop();
