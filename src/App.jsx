@@ -10,6 +10,7 @@ import RequirementMapping from './pages/RequirementMapping';
 import KnowledgeRisk from './pages/KnowledgeRisk';
 import LandingPage from './pages/LandingPage';
 import SetupPage from './pages/SetupPage';
+import FloatingChatbot from './components/FloatingChatbot';
 
 // Component mapping for clean routes
 const DashboardPages = {
@@ -113,6 +114,7 @@ export default function App() {
     <ThemeProvider>
       <BrowserRouter>
         <AppLayout />
+        <FloatingChatbot />
       </BrowserRouter>
     </ThemeProvider>
   );

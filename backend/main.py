@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 from models.db import init_db
-from routers import github, analysis, dashboard
+from routers import github, analysis, dashboard, chat
 
 load_dotenv()
 
@@ -34,6 +34,7 @@ app.add_middleware(
 app.include_router(github.router)
 app.include_router(analysis.router)
 app.include_router(dashboard.router)
+app.include_router(chat.router)
 
 
 @app.on_event("startup")
