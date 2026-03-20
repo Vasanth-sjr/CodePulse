@@ -44,7 +44,10 @@ export default function FloatingChatbot() {
     setIsLoading(true);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL || ''}/api/chat`, {
+      const isProd = import.meta.env.PROD;
+      const defaultProdUrl = 'https://vasanth-sjr-codepulse-api.hf.space';
+      const baseUrl = isProd ? (import.meta.env.VITE_API_BASE_URL || defaultProdUrl) : '';
+      const res = await fetch(`${baseUrl}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

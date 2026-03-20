@@ -2,7 +2,12 @@
  * CodePulse API Service — centralized fetch wrapper for all backend calls.
  */
 
-const API_BASE = `${import.meta.env.VITE_API_BASE_URL || ''}/api`;
+const isProd = import.meta.env.PROD;
+const defaultProdUrl = 'https://vasanth-sjr-codepulse-api.hf.space';
+// Use Vercel env var if available, else fallback to HF, else use local proxy
+const API_BASE = isProd 
+  ? `${import.meta.env.VITE_API_BASE_URL || defaultProdUrl}/api` 
+  : '/api';
 
 class ApiError extends Error {
   constructor(status, message, detail) {
