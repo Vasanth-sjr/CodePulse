@@ -11,6 +11,7 @@ import KnowledgeRisk from './pages/KnowledgeRisk';
 import SkillIntelligence from './pages/SkillIntelligence';
 import Recommendations from './pages/Recommendations';
 import LandingPage from './pages/LandingPage';
+import HomePage from './pages/HomePage';
 import SetupPage from './pages/SetupPage';
 import FloatingChatbot from './components/FloatingChatbot';
 
@@ -105,7 +106,7 @@ function AppLayout() {
 
   return (
     <Routes>
-      <Route path="/" element={<LandingPage onNavigate={handleNavigate} />} />
+      <Route path="/" element={<HomePage onNavigate={handleNavigate} />} />
       <Route path="/setup" element={<SetupPage onComplete={handleSetupComplete} />} />
       <Route path="/dashboard/*" element={<DashboardLayout />} />
       <Route path="*" element={<Navigate to="/" replace />} />

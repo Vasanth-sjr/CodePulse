@@ -263,3 +263,96 @@
   animation: modalSlideUp 0.5s ease-out both;
 }
 
+/* ===================== LANDING PAGE ===================== */
+
+/* Floating gradient blobs */
+.hp-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+  will-change: transform;
+}
+.hp-blob-1 {
+  width: 600px; height: 600px;
+  top: -200px; right: -150px;
+  animation: hpFloat1 18s ease-in-out infinite alternate;
+}
+.hp-blob-2 {
+  width: 500px; height: 500px;
+  bottom: -100px; left: -150px;
+  animation: hpFloat2 22s ease-in-out infinite alternate;
+}
+.hp-blob-3 {
+  width: 350px; height: 350px;
+  top: 40%; left: 50%;
+  opacity: 0.10;
+  animation: hpFloat3 15s ease-in-out infinite alternate;
+}
+
+@keyframes hpFloat1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-80px, 60px) scale(1.15); }
+}
+@keyframes hpFloat2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(70px, -50px) scale(1.1); }
+}
+@keyframes hpFloat3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-40px, 30px) scale(1.2); }
+}
+
+/* Hero entrance */
+.hp-hero-entrance {
+  animation: hpHeroIn 1s ease-out both;
+}
+@keyframes hpHeroIn {
+  0%   { opacity: 0; transform: translateY(40px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Scroll indicator bounce */
+.hp-scroll-indicator {
+  animation: hpBounce 2s ease-in-out infinite;
+}
+@keyframes hpBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Flip card 3D */
+.hp-flip-container {
+  perspective: 1000px;
+}
+.hp-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.hp-flipped {
+  transform: rotateY(180deg);
+}
+.hp-flip-front,
+.hp-flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.hp-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Scope / future cards hover */
+.hp-scope-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.hp-scope-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+

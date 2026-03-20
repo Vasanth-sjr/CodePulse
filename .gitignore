@@ -31,3 +31,4 @@ backend/.venv
 backend/.env
 backend/codepulse.db
 *.png
+.vercel
