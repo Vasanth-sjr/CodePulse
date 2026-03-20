@@ -11,6 +11,11 @@ def _get_model():
     """Load the sentence transformer model (singleton)."""
     global _model
     if _model is None:
+        import torch
+        # Limit PyTorch threads to reduce memory usage on small instances (like Render 512MB)
+        torch.set_num_threads(1)
+        import gc
+        gc.collect()
         _model = SentenceTransformer("all-MiniLM-L6-v2")
     return _model
 

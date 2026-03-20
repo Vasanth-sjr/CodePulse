@@ -48,17 +48,10 @@ app.include_router(ai.router)
 
 @app.on_event("startup")
 def on_startup():
-    """Initialize database tables and preload ML models on startup."""
+    """Initialize database tables on startup."""
     init_db()
-
-    # Preload sentence-transformers model (singleton) to avoid first-request latency
-    try:
-        from services.nlp_service import _get_model
-        logger.info("Preloading sentence-transformers model...")
-        _get_model()
-        logger.info("Sentence-transformers model loaded successfully.")
-    except Exception as e:
-        logger.warning(f"Could not preload sentence-transformers model: {e}")
+    # Note: ML model preloading removed for Render free tier (512MB RAM limit).
+    # Model will lazy-load on first requirement mapping request.
 
 
 @app.exception_handler(Exception)
