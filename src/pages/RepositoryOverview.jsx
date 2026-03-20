@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useTheme } from '../context/ThemeContext';
-import { getDashboardSummary } from '../services/api';
+import { getDashboardSummary, getSprintSummary } from '../services/api';
 import SkeletonLoader from '../components/SkeletonLoader';
+import ExplainModal from '../components/ExplainModal';
 
 const CustomTooltip = ({ active, payload, label, isDark }) => {
   if (active && payload && payload.length) {
@@ -44,6 +45,9 @@ export default function RepositoryOverview() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [sprintSummary, setSprintSummary] = useState(null);
+  const [sprintLoading, setSprintLoading] = useState(true);
+  const [explainModal, setExplainModal] = useState(null); // { sha, message }
 
   useEffect(() => {
     const repoId = localStorage.getItem('codepulse_repo_id');
@@ -62,6 +66,14 @@ export default function RepositoryOverview() {
         setError(err.detail || err.message || 'Failed to load dashboard data');
         setLoading(false);
       });
+
+    // Fetch sprint summary independently
+    getSprintSummary(parseInt(repoId))
+      .then(res => {
+        setSprintSummary(res);
+        setSprintLoading(false);
+      })
+      .catch(() => setSprintLoading(false));
   }, []);
 
   if (loading) return <SkeletonLoader />;
@@ -109,6 +121,7 @@ export default function RepositoryOverview() {
 
   const recentActivity = (overview.recent_activity || []).map((item, i) => ({
     id: i + 1,
+    sha: item.sha || '',
     dev: {
       color: devColorMap[item.author] || '#3B82F6',
       initials: item.author ? item.author.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) : '??',
@@ -124,6 +137,50 @@ export default function RepositoryOverview() {
       <div className="animate-fade-in">
         <h1 className="text-2xl font-bold t-primary">Repository Overview</h1>
         <p className="text-sm t-muted mt-1">{repoName} — Real-time development insights</p>
+      </div>
+
+      {/* AI Sprint Summary */}
+      <div className={`glass-card gradient-border p-5 animate-fade-in ${
+        isDark
+          ? '!bg-gradient-to-r !from-accent-blue/5 !to-accent-purple/5'
+          : '!bg-gradient-to-r !from-green-50/80 !to-emerald-50/80'
+      }`}>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-lg">🧠</span>
+          <h2 className="text-base font-semibold t-primary">AI Weekly Summary</h2>
+        </div>
+        {sprintLoading ? (
+          <div className="space-y-2">
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-4/5"></div>
+            <div className="skeleton h-4 w-3/5"></div>
+          </div>
+        ) : sprintSummary ? (
+          <>
+            <p className="text-sm t-secondary leading-relaxed"
+               dangerouslySetInnerHTML={{
+                 __html: (sprintSummary.summary || '').replace(
+                   /\*\*(.*?)\*\*/g, '<strong class="t-primary font-semibold">$1</strong>'
+                 )
+               }}
+            />
+            {sprintSummary.highlights?.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-3">
+                {sprintSummary.highlights.map((h, i) => (
+                  <span key={i} className={`text-[10px] font-medium px-2 py-1 rounded-full ${
+                    isDark
+                      ? 'bg-white/5 text-slate-400 border border-white/10'
+                      : 'bg-gray-100 text-gray-600 border border-gray-200'
+                  }`}>
+                    {h}
+                  </span>
+                ))}
+              </div>
+            )}
+          </>
+        ) : (
+          <p className="text-sm t-muted">Unable to generate summary at this time.</p>
+        )}
       </div>
 
       {/* Stats Grid */}
@@ -209,6 +266,18 @@ export default function RepositoryOverview() {
                     </span>
                   </div>
                 </div>
+                {item.sha && (
+                  <button
+                    onClick={() => setExplainModal({ sha: item.sha, message: item.message })}
+                    className={`flex-shrink-0 text-[10px] font-medium px-2 py-1 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 ${
+                      isDark
+                        ? 'bg-accent-blue/10 text-accent-blue border border-accent-blue/20 hover:bg-accent-blue/20'
+                        : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100'
+                    }`}
+                  >
+                    ✨ Explain
+                  </button>
+                )}
               </div>
             )) : (
               <p className="text-sm t-muted text-center py-4">No recent activity</p>
@@ -216,6 +285,16 @@ export default function RepositoryOverview() {
           </div>
         </div>
       </div>
+
+      {/* Explain Modal */}
+      {explainModal && (
+        <ExplainModal
+          commitSha={explainModal.sha}
+          commitMessage={explainModal.message}
+          repoId={localStorage.getItem('codepulse_repo_id')}
+          onClose={() => setExplainModal(null)}
+        />
+      )}
     </div>
   );
 }

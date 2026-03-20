@@ -6,8 +6,10 @@ import { useTheme } from '../context/ThemeContext';
 const navItems = [
   { id: 'overview', icon: '🏠', label: 'Repository Overview' },
   { id: 'impact', icon: '👥', label: 'Developer Impact' },
+  { id: 'skills', icon: '🧠', label: 'Skill Intelligence' },
   { id: 'mapping', icon: '🔗', label: 'Requirement Mapping' },
   { id: 'risk', icon: '⚠️', label: 'Knowledge Risk' },
+  { id: 'recommendations', icon: '💡', label: 'Recommendations' },
 ];
 
 export default function Sidebar({ onSetup }) {

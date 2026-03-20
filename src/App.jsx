@@ -8,6 +8,8 @@ import RepositoryOverview from './pages/RepositoryOverview';
 import DeveloperImpact from './pages/DeveloperImpact';
 import RequirementMapping from './pages/RequirementMapping';
 import KnowledgeRisk from './pages/KnowledgeRisk';
+import SkillIntelligence from './pages/SkillIntelligence';
+import Recommendations from './pages/Recommendations';
 import LandingPage from './pages/LandingPage';
 import SetupPage from './pages/SetupPage';
 import FloatingChatbot from './components/FloatingChatbot';
@@ -60,8 +62,10 @@ function DashboardLayout() {
             <Routes>
               <Route path="overview" element={<RepositoryOverview />} />
               <Route path="impact" element={<DeveloperImpact />} />
+              <Route path="skills" element={<SkillIntelligence />} />
               <Route path="mapping" element={<RequirementMapping />} />
               <Route path="risk" element={<KnowledgeRisk />} />
+              <Route path="recommendations" element={<Recommendations />} />
               <Route path="*" element={<Navigate to="overview" replace />} />
             </Routes>
           )}

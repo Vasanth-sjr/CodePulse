@@ -95,6 +95,25 @@ export async function getDashboardSummary(repoId) {
 }
 
 /**
+ * AI Intelligence endpoints.
+ */
+export async function getCommitExplanation(repoId, sha) {
+  return request('GET', `/ai/commit/${sha}/explanation?repo_id=${repoId}`);
+}
+
+export async function getDeveloperSkills(repoId) {
+  return request('GET', `/ai/developers/skills?repo_id=${repoId}`);
+}
+
+export async function getSprintSummary(repoId) {
+  return request('GET', `/ai/summary/sprint?repo_id=${repoId}`);
+}
+
+export async function getRecommendations(repoId) {
+  return request('GET', `/ai/recommendations?repo_id=${repoId}`);
+}
+
+/**
  * Health check.
  */
 export async function healthCheck() {

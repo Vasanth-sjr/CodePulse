@@ -4,8 +4,9 @@ import {
   LineChart, Line,
 } from 'recharts';
 import { useTheme } from '../context/ThemeContext';
-import { getImpactScores } from '../services/api';
+import { getImpactScores, getDashboardSummary } from '../services/api';
 import SkeletonLoader from '../components/SkeletonLoader';
+import ExplainModal from '../components/ExplainModal';
 
 const getBadgeClass = (badge) => {
   if (badge === 'HIGH IMPACT') return 'badge-high';
@@ -33,6 +34,8 @@ export default function DeveloperImpact() {
   const [developers, setDevelopers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [explainModal, setExplainModal] = useState(null); // { sha, message }
+  const [commitShas, setCommitShas] = useState({}); // dev name -> first commit sha
 
   useEffect(() => {
     const repoId = localStorage.getItem('codepulse_repo_id');
@@ -42,9 +45,12 @@ export default function DeveloperImpact() {
       return;
     }
 
-    getImpactScores(parseInt(repoId))
-      .then(data => {
-        // Map API response to component format
+    // Fetch both impact scores and dashboard summary for commit SHAs
+    Promise.all([
+      getImpactScores(parseInt(repoId)),
+      getDashboardSummary(parseInt(repoId)).catch(() => null),
+    ])
+      .then(([data, summary]) => {
         const mapped = data.map((dev, i) => ({
           id: i + 1,
           name: dev.name,
@@ -57,6 +63,17 @@ export default function DeveloperImpact() {
           sparkline: dev.trend_data || [0, 0, 0, 0, 0, 0, 0, 0],
         }));
         setDevelopers(mapped);
+
+        // Build dev → first commit SHA map from recent activity
+        if (summary?.repo_overview?.recent_activity) {
+          const shaMap = {};
+          for (const act of summary.repo_overview.recent_activity) {
+            if (act.author && act.sha && !shaMap[act.author]) {
+              shaMap[act.author] = { sha: act.sha, message: act.message };
+            }
+          }
+          setCommitShas(shaMap);
+        }
         setLoading(false);
       })
       .catch(err => {
@@ -111,9 +128,23 @@ export default function DeveloperImpact() {
                   <p className="text-xs t-faint">{dev.commits} commits · {dev.files} files</p>
                 </div>
               </div>
-              <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${getBadgeClass(dev.badge)}`}>
-                {dev.badge}
-              </span>
+              <div className="flex items-center gap-2">
+                {commitShas[dev.name] && (
+                  <button
+                    onClick={() => setExplainModal(commitShas[dev.name])}
+                    className={`text-[10px] font-medium px-2 py-0.5 rounded-full transition-all duration-200 ${
+                      isDark
+                        ? 'bg-accent-blue/10 text-accent-blue border border-accent-blue/20 hover:bg-accent-blue/20'
+                        : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100'
+                    }`}
+                  >
+                    ✨ Explain
+                  </button>
+                )}
+                <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${getBadgeClass(dev.badge)}`}>
+                  {dev.badge}
+                </span>
+              </div>
             </div>
 
             {/* Score */}
@@ -201,6 +232,15 @@ export default function DeveloperImpact() {
           </div>
         </div>
       </div>
+      {/* Explain Modal */}
+      {explainModal && (
+        <ExplainModal
+          commitSha={explainModal.sha}
+          commitMessage={explainModal.message}
+          repoId={localStorage.getItem('codepulse_repo_id')}
+          onClose={() => setExplainModal(null)}
+        />
+      )}
     </div>
   );
 }
