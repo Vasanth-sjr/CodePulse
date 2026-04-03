@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   LineChart, Line,
@@ -200,8 +200,8 @@ export default function DeveloperImpact() {
               <Tooltip content={<CustomTooltip isDark={isDark} />} cursor={{ fill: isDark ? 'rgba(59,130,246,0.05)' : 'rgba(22,163,74,0.05)' }} />
               <defs>
                 <linearGradient id="scoreGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor={isDark ? '#3B82F6' : '#16A34A'} />
-                  <stop offset="100%" stopColor={isDark ? '#8B5CF6' : '#059669'} />
+                  <stop offset="0%" stopColor={isDark ? '#22c55e' : '#16A34A'} />
+                  <stop offset="100%" stopColor={isDark ? '#16a34a' : '#059669'} />
                 </linearGradient>
               </defs>
               <Bar dataKey="score" fill="url(#scoreGrad)" radius={[0, 6, 6, 0]} />

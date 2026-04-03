@@ -106,3 +106,11 @@ class DashboardSummary(BaseModel):
 class ErrorResponse(BaseModel):
     error: str
     detail: str
+
+
+class JiraConnectRequest(BaseModel):
+    baseUrl: str
+    email: str
+    apiToken: str
+    projectKey: Optional[str] = None
+    repo_id: int

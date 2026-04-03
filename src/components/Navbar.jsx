@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
-export default function Navbar({ repoName, onSetup }) {
+function Navbar({ repoName, onSetup }) {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
   const displayName = repoName || 'No repository connected';
 
   return (
-    <header className={`fixed top-0 left-64 right-0 h-16 backdrop-blur-xl flex items-center justify-between px-6 z-20 transition-colors duration-300 ${
+    <header className={`fixed top-0 left-[72px] right-0 h-16 lg:h-[72px] backdrop-blur-xl flex items-center justify-between px-6 z-20 transition-colors duration-300 ${
       isDark
         ? 'bg-dark-800/60 border-b border-white/5'
         : 'bg-white/70 border-b border-black/5 shadow-sm'
@@ -25,7 +25,7 @@ export default function Navbar({ repoName, onSetup }) {
         onClick={onSetup}
         className={`flex items-center gap-2 px-4 py-2 rounded-lg cursor-pointer transition-colors ${
           isDark
-            ? 'bg-dark-700/60 border border-white/5 hover:border-accent-blue/20'
+            ? 'bg-dark-700/60 border border-white/5 hover:border-green-500/20'
             : 'bg-gray-50 border border-gray-200 hover:border-green-300'
         }`}
       >
@@ -68,14 +68,16 @@ export default function Navbar({ repoName, onSetup }) {
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
           </svg>
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--accent-1)' }}></span>
+          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-green-500"></span>
         </button>
 
         {/* Avatar */}
-        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center text-white font-semibold text-sm cursor-pointer">
+        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-semibold text-sm cursor-pointer">
           JD
         </div>
       </div>
     </header>
   );
 }
+
+export default memo(Navbar);

@@ -119,6 +119,37 @@ export async function getRecommendations(repoId) {
 }
 
 /**
+ * Jira Integration endpoints.
+ */
+export async function connectJira(baseUrl, email, apiToken, projectKey, repoId) {
+  return request('POST', '/integrations/jira/connect', {
+    baseUrl,
+    email,
+    apiToken,
+    projectKey: projectKey || undefined,
+    repo_id: repoId,
+  });
+}
+
+export async function getPlanVsReality(repoId) {
+  return request('GET', `/integrations/jira/plan-vs-reality?repo_id=${repoId}`);
+}
+
+/**
+ * Email Notification endpoints.
+ */
+export async function sendEmailReport(repoId, email) {
+  return request('POST', '/notifications/send-email-report', {
+    repo_id: repoId,
+    email,
+  });
+}
+
+export async function testEmailWebhook() {
+  return request('POST', '/notifications/test-webhook');
+}
+
+/**
  * Health check.
  */
 export async function healthCheck() {

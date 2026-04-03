@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useTheme } from '../context/ThemeContext';
 import { getDashboardSummary, getSprintSummary } from '../services/api';
@@ -95,9 +95,9 @@ export default function RepositoryOverview() {
   const repoName = overview.repo_name || localStorage.getItem('codepulse_repo_name') || 'Repository';
 
   const stats = [
-    { label: 'Total Commits', value: String(overview.total_commits), icon: '📊', change: `${overview.total_commits} total`, color: 'from-blue-500 to-blue-600' },
-    { label: 'Active Developers', value: String(overview.active_developers), icon: '👥', change: 'contributors', color: 'from-purple-500 to-purple-600' },
-    { label: 'Modules Tracked', value: String(overview.modules_tracked), icon: '📦', change: 'detected', color: 'from-emerald-500 to-emerald-600' },
+    { label: 'Total Commits', value: String(overview.total_commits), icon: '📊', change: `${overview.total_commits} total`, color: 'from-green-500 to-emerald-600' },
+    { label: 'Active Developers', value: String(overview.active_developers), icon: '👥', change: 'contributors', color: 'from-purple-500 to-violet-600' },
+    { label: 'Modules Tracked', value: String(overview.modules_tracked), icon: '📦', change: 'detected', color: 'from-blue-500 to-cyan-600' },
     { label: 'Risk Modules', value: String(overview.risky_modules), icon: '⚠️', change: overview.risky_modules > 0 ? 'Action needed' : 'All clear', color: 'from-red-500 to-red-600' },
   ];
 
@@ -230,8 +230,8 @@ export default function RepositoryOverview() {
               <Tooltip content={<CustomTooltip isDark={isDark} />} cursor={{ fill: isDark ? 'rgba(59,130,246,0.05)' : 'rgba(22,163,74,0.05)' }} />
               <defs>
                 <linearGradient id="commitGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor={isDark ? '#3B82F6' : '#16A34A'} />
-                  <stop offset="100%" stopColor={isDark ? '#8B5CF6' : '#059669'} />
+                  <stop offset="0%" stopColor={isDark ? '#22c55e' : '#16A34A'} />
+                  <stop offset="100%" stopColor={isDark ? '#16a34a' : '#059669'} />
                 </linearGradient>
               </defs>
               <Bar dataKey="commits" fill="url(#commitGradient)" radius={[6, 6, 0, 0]} />
