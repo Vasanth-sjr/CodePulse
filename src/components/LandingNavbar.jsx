@@ -1,217 +1,129 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import CodePulseLogo from './CodePulseLogo';
-import { useTheme } from '../context/ThemeContext';
 
-const platformDropdown = [
+/* ── dropdown data ── */
+const platformItems = [
   { icon: '📊', label: 'Developer Intelligence', desc: 'Impact scoring beyond commit counts' },
-  { icon: '📋', label: 'Plan vs Reality', desc: 'Jira issues matched to GitHub commits' },
+  { icon: '📋', label: 'Plan vs Reality', desc: 'Jira tasks matched to GitHub commits' },
   { icon: '🧠', label: 'Skill Intelligence', desc: 'Expertise mapped from code contributions' },
   { icon: '⚠️', label: 'Risk Detection', desc: 'Identify single points of failure' },
 ];
 
-const navLinks = [
-  { label: 'Platform', href: '#platform', hasDropdown: true },
-  { label: 'Features', href: '#features' },
-  { label: 'Resources', href: '#how-it-works' },
-  { label: 'Demo', href: '#demo-preview' },
+const whyItems = [
+  { icon: '🎯', label: 'For Engineering Leaders', desc: 'Data-driven team management' },
+  { icon: '💡', label: 'For Developers', desc: 'Fair, transparent contribution scoring' },
 ];
 
+const resourceItems = [
+  { icon: '📖', label: 'Documentation', desc: 'Guides and API reference' },
+  { icon: '🔗', label: 'GitHub', desc: 'Open source repository' },
+];
+
+const navLinks = [
+  { label: 'Platform', href: '#features', hasDropdown: 'platform' },
+  { label: 'Why CodePulse', href: '#problem-solution', hasDropdown: 'why' },
+  { label: 'Community', href: '#team' },
+  { label: 'Resources', href: '#how-it-works', hasDropdown: 'resources' },
+];
+
+const dropdownMap = { platform: platformItems, why: whyItems, resources: resourceItems };
+
 function LandingNavbar({ onNavigate }) {
-  const { theme, toggleTheme } = useTheme();
-  const isDark = theme === 'dark';
   const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDd, setOpenDd] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRef = useRef(null);
-  const timeoutRef = useRef(null);
+  const ddRef = useRef(null);
+  const timerRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const fn = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  // Close dropdown on outside click
   useEffect(() => {
-    const handler = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDropdownOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
+    const fn = (e) => { if (ddRef.current && !ddRef.current.contains(e.target)) setOpenDd(null); };
+    document.addEventListener('mousedown', fn);
+    return () => document.removeEventListener('mousedown', fn);
   }, []);
 
-  const handleDropdownEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setDropdownOpen(true);
-  };
-  const handleDropdownLeave = () => {
-    timeoutRef.current = setTimeout(() => setDropdownOpen(false), 200);
-  };
+  const enter = (id) => { clearTimeout(timerRef.current); setOpenDd(id); };
+  const leave = () => { timerRef.current = setTimeout(() => setOpenDd(null), 180); };
 
   return (
-    <nav
-      id="landing-navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? isDark
-            ? 'bg-dark-900/85 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20'
-            : 'bg-white/85 backdrop-blur-xl border-b border-black/5 shadow-lg shadow-black/5'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-[72px]">
-          {/* Left: Logo */}
-          <a href="#" className="flex items-center gap-2.5 flex-shrink-0" onClick={(e) => { e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }}>
-            <CodePulseLogo size={32} />
-            <span className="text-xl font-bold gradient-text">CodePulse</span>
-          </a>
+    <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      scrolled
+        ? 'bg-white/90 backdrop-blur-xl border-b border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.04)]'
+        : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-14">
+        {/* ── Logo ── */}
+        <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }} className="flex items-center gap-2">
+          <CodePulseLogo size={28} />
+          <span className="text-base font-bold text-[#0B0F19]">CodePulse</span>
+        </a>
 
-          {/* Center: Nav links (desktop) */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) =>
-              link.hasDropdown ? (
-                <div
-                  key={link.label}
-                  ref={dropdownRef}
-                  className="relative"
-                  onMouseEnter={handleDropdownEnter}
-                  onMouseLeave={handleDropdownLeave}
-                >
-                  <button
-                    className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      isDark
-                        ? 'text-slate-300 hover:text-white hover:bg-white/5'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                    }`}
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                  >
-                    {link.label}
-                    <svg className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  {/* Dropdown */}
-                  <div
-                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 rounded-xl border transition-all duration-200 origin-top ${
-                      dropdownOpen
-                        ? 'opacity-100 scale-100 pointer-events-auto'
-                        : 'opacity-0 scale-95 pointer-events-none'
-                    } ${
-                      isDark
-                        ? 'bg-dark-800/95 backdrop-blur-xl border-white/10 shadow-2xl shadow-black/40'
-                        : 'bg-white/95 backdrop-blur-xl border-gray-200 shadow-2xl shadow-black/10'
-                    }`}
-                  >
-                    <div className="p-2">
-                      {platformDropdown.map((item) => (
-                        <a
-                          key={item.label}
-                          href="#features"
-                          className={`flex items-start gap-3 p-3 rounded-lg transition-colors ${
-                            isDark
-                              ? 'hover:bg-white/5'
-                              : 'hover:bg-gray-50'
-                          }`}
-                          onClick={() => setDropdownOpen(false)}
-                        >
-                          <span className="text-xl mt-0.5 flex-shrink-0">{item.icon}</span>
-                          <div>
-                            <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.label}</p>
-                            <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>{item.desc}</p>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
+        {/* ── Center links (desktop) ── */}
+        <div className="hidden lg:flex items-center gap-1" ref={ddRef}>
+          {navLinks.map((link) =>
+            link.hasDropdown ? (
+              <div key={link.label} className="relative" onMouseEnter={() => enter(link.hasDropdown)} onMouseLeave={leave}>
+                <button className="flex items-center gap-1 px-3.5 py-2 rounded-lg text-[13px] font-medium text-[#6B7280] hover:text-[#0B0F19] transition-colors">
+                  {link.label}
+                  <svg className={`w-3.5 h-3.5 transition-transform ${openDd === link.hasDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                {/* Dropdown */}
+                <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 rounded-xl border border-black/[0.06] bg-white shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-200 origin-top ${
+                  openDd === link.hasDropdown ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
+                } ${link.hasDropdown === 'platform' ? 'w-[360px]' : 'w-[300px]'}`}>
+                  <div className="p-2">
+                    {dropdownMap[link.hasDropdown]?.map((item) => (
+                      <a key={item.label} href={link.href} className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#F8FAFC] transition-colors" onClick={() => setOpenDd(null)}>
+                        <span className="text-lg mt-0.5 flex-shrink-0">{item.icon}</span>
+                        <div>
+                          <p className="text-[13px] font-semibold text-[#0B0F19]">{item.label}</p>
+                          <p className="text-[11px] text-[#9CA3AF] mt-0.5">{item.desc}</p>
+                        </div>
+                      </a>
+                    ))}
                   </div>
                 </div>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isDark
-                      ? 'text-slate-300 hover:text-white hover:bg-white/5'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              )
-            )}
-          </div>
-
-          {/* Right: Actions */}
-          <div className="hidden lg:flex items-center gap-3">
-            {/* Theme toggle */}
-            <button
-              onClick={toggleTheme}
-              className={`p-2 rounded-lg transition-colors ${
-                isDark ? 'text-slate-400 hover:text-white hover:bg-white/5' : 'text-gray-400 hover:text-gray-700 hover:bg-gray-100'
-              }`}
-              title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-            >
-              {isDark ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
-              )}
-            </button>
-            {/* Login */}
-            <button
-              onClick={() => onNavigate('setup')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                isDark ? 'text-slate-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              Login
-            </button>
-            {/* Get Started */}
-            <button
-              onClick={() => onNavigate('setup')}
-              className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 hover:scale-105"
-            >
-              Get Started
-            </button>
-          </div>
-
-          {/* Mobile: hamburger */}
-          <button
-            className={`lg:hidden p-2 rounded-lg ${isDark ? 'text-slate-300' : 'text-gray-600'}`}
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+              </div>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-            )}
+              <a key={link.label} href={link.href} className="px-3.5 py-2 rounded-lg text-[13px] font-medium text-[#6B7280] hover:text-[#0B0F19] transition-colors">
+                {link.label}
+              </a>
+            )
+          )}
+        </div>
+
+        {/* ── Right actions ── */}
+        <div className="hidden lg:flex items-center gap-2.5">
+          <button onClick={() => onNavigate('setup')} className="px-4 py-2 text-[13px] font-medium text-[#6B7280] hover:text-[#0B0F19] transition-colors">
+            Login
+          </button>
+          <button onClick={() => onNavigate('setup')} className="px-5 py-2.5 rounded-lg text-[13px] font-semibold text-white bg-[#0B0F19] hover:bg-[#1a1f2e] transition-all duration-200 hover:scale-[1.02] hover:shadow-lg">
+            Get Started
           </button>
         </div>
+
+        {/* ── Mobile hamburger ── */}
+        <button className="lg:hidden p-2 text-[#6B7280]" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+          ) : (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+          )}
+        </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className={`lg:hidden border-t ${isDark ? 'bg-dark-900/95 border-white/5' : 'bg-white/95 border-gray-100'} backdrop-blur-xl`}>
-          <div className="px-6 py-4 space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium ${isDark ? 'text-slate-300 hover:bg-white/5' : 'text-gray-600 hover:bg-gray-50'}`}
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <button
-              onClick={() => { onNavigate('setup'); setMobileOpen(false); }}
-              className="w-full mt-2 px-5 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-green-600 to-emerald-600 transition-all"
-            >
-              Get Started
-            </button>
-          </div>
+        <div className="lg:hidden bg-white border-t border-black/[0.06] px-6 py-4 space-y-1">
+          {navLinks.map((l) => (
+            <a key={l.label} href={l.href} className="block px-4 py-3 rounded-lg text-sm font-medium text-[#6B7280] hover:bg-[#F8FAFC]" onClick={() => setMobileOpen(false)}>{l.label}</a>
+          ))}
+          <button onClick={() => { onNavigate('setup'); setMobileOpen(false); }} className="w-full mt-2 py-3 rounded-lg text-sm font-semibold text-white bg-[#0B0F19]">Get Started</button>
         </div>
       )}
     </nav>
