@@ -3,13 +3,14 @@
 import logging
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from models.db import get_db, Commit
+from models.db import get_db, Commit, JiraConfig
 from models.schemas import JiraConnectRequest
 from services.jira_service import validate_and_fetch_issues, match_issues_to_commits
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/integrations/jira", tags=["Jira"])
+
 
 # In-memory store for plan-vs-reality results (keyed by repo_id)
 _jira_results: dict[int, dict] = {}

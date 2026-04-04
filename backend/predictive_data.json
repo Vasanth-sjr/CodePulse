@@ -1,0 +1,375 @@
+{
+  "simulation_history": {
+    "1": {
+      "simulation_id": "1aaefc6d-e6d3-4f97-b6db-1ed00a66bb48",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": "krook",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-04T12:11:20.143178Z",
+      "result": {
+        "simulation_id": "1aaefc6d-e6d3-4f97-b6db-1ed00a66bb48",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-04T12:11:20.143178Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor test module for scalability",
+            "old_probability": 68,
+            "new_probability": 47,
+            "delta": -21
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for .github service",
+            "old_probability": 47,
+            "new_probability": 47,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in images error handling",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for docs",
+            "old_probability": 89,
+            "new_probability": 89,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in contributing",
+            "old_probability": 72,
+            "new_probability": 72,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "2": {
+      "simulation_id": "734d9b5a-eaaa-4ba3-93af-b37c3baef2f0",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": "Gaurav-Ramakrishna",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-04T13:18:54.192901Z",
+      "result": {
+        "simulation_id": "734d9b5a-eaaa-4ba3-93af-b37c3baef2f0",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-04T13:18:54.192901Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor test module for scalability",
+            "old_probability": 68,
+            "new_probability": 68,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for .github service",
+            "old_probability": 47,
+            "new_probability": 16,
+            "delta": -31
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in images error handling",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for docs",
+            "old_probability": 89,
+            "new_probability": 89,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in contributing",
+            "old_probability": 72,
+            "new_probability": 72,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [
+          {
+            "flag": "DELIVERY_AT_RISK",
+            "ticket_id": "CP-02",
+            "ticket_title": "Add unit tests for .github service"
+          }
+        ],
+        "proposed_distribution": [
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for .github service",
+            "assigned_to": "krook",
+            "reason": "Reassigned from Gaurav-Ramakrishna due to capacity impact",
+            "skill_match_score": 59
+          }
+        ]
+      }
+    },
+    "3": {
+      "simulation_id": "9a4e6b43-c247-4839-9dc6-d58cde68eb09",
+      "scenario": "new_requirement",
+      "params": {
+        "dev_name": null,
+        "requirement_title": "sample-react-app",
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-04T13:20:24.600843Z",
+      "result": {
+        "simulation_id": "9a4e6b43-c247-4839-9dc6-d58cde68eb09",
+        "scenario_applied": "new_requirement",
+        "applied_at": "2026-04-04T13:20:24.600843Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor test module for scalability",
+            "old_probability": 68,
+            "new_probability": 59,
+            "delta": -9
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for .github service",
+            "old_probability": 47,
+            "new_probability": 42,
+            "delta": -5
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in images error handling",
+            "old_probability": 90,
+            "new_probability": 77,
+            "delta": -13
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for docs",
+            "old_probability": 89,
+            "new_probability": 78,
+            "delta": -11
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in contributing",
+            "old_probability": 72,
+            "new_probability": 57,
+            "delta": -15
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 75,
+            "delta": -10
+          },
+          {
+            "ticket_id": "CP-NEW",
+            "title": "sample-react-app",
+            "old_probability": 100,
+            "new_probability": 10,
+            "delta": -90
+          }
+        ],
+        "new_flags": [
+          {
+            "flag": "DELIVERY_AT_RISK",
+            "ticket_id": "CP-NEW",
+            "ticket_title": "sample-react-app"
+          }
+        ],
+        "proposed_distribution": []
+      }
+    },
+    "4": {
+      "simulation_id": "a9ad08be-3ce5-4c34-a2cd-f6d0c927f758",
+      "scenario": "new_requirement",
+      "params": {
+        "dev_name": null,
+        "requirement_title": "sample-react-app",
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-04T13:21:47.271396Z",
+      "result": {
+        "simulation_id": "a9ad08be-3ce5-4c34-a2cd-f6d0c927f758",
+        "scenario_applied": "new_requirement",
+        "applied_at": "2026-04-04T13:21:47.271396Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor test module for scalability",
+            "old_probability": 68,
+            "new_probability": 60,
+            "delta": -8
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for .github service",
+            "old_probability": 47,
+            "new_probability": 33,
+            "delta": -14
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in images error handling",
+            "old_probability": 90,
+            "new_probability": 78,
+            "delta": -12
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for docs",
+            "old_probability": 89,
+            "new_probability": 82,
+            "delta": -7
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in contributing",
+            "old_probability": 72,
+            "new_probability": 59,
+            "delta": -13
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 76,
+            "delta": -9
+          },
+          {
+            "ticket_id": "CP-NEW",
+            "title": "sample-react-app",
+            "old_probability": 100,
+            "new_probability": 10,
+            "delta": -90
+          }
+        ],
+        "new_flags": [
+          {
+            "flag": "DELIVERY_AT_RISK",
+            "ticket_id": "CP-02",
+            "ticket_title": "Add unit tests for .github service"
+          },
+          {
+            "flag": "DELIVERY_AT_RISK",
+            "ticket_id": "CP-NEW",
+            "ticket_title": "sample-react-app"
+          }
+        ],
+        "proposed_distribution": [
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for .github service",
+            "assigned_to": "krook",
+            "reason": "Reassigned from Gaurav-Ramakrishna due to capacity impact",
+            "skill_match_score": 61
+          }
+        ]
+      }
+    },
+    "5": {
+      "simulation_id": "af2f8fa2-cade-41e6-a181-fe18a46257f5",
+      "scenario": "new_requirement",
+      "params": {
+        "dev_name": null,
+        "requirement_title": "sample-react-app",
+        "complexity": "high"
+      },
+      "ran_at": "2026-04-04T13:25:08.037512Z",
+      "result": {
+        "simulation_id": "af2f8fa2-cade-41e6-a181-fe18a46257f5",
+        "scenario_applied": "new_requirement",
+        "applied_at": "2026-04-04T13:25:08.037512Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor test module for scalability",
+            "old_probability": 68,
+            "new_probability": 56,
+            "delta": -12
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for .github service",
+            "old_probability": 47,
+            "new_probability": 41,
+            "delta": -6
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in images error handling",
+            "old_probability": 90,
+            "new_probability": 83,
+            "delta": -7
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for docs",
+            "old_probability": 89,
+            "new_probability": 77,
+            "delta": -12
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in contributing",
+            "old_probability": 72,
+            "new_probability": 64,
+            "delta": -8
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 78,
+            "delta": -7
+          },
+          {
+            "ticket_id": "CP-NEW",
+            "title": "sample-react-app",
+            "old_probability": 100,
+            "new_probability": 10,
+            "delta": -90
+          }
+        ],
+        "new_flags": [
+          {
+            "flag": "DELIVERY_AT_RISK",
+            "ticket_id": "CP-NEW",
+            "ticket_title": "sample-react-app"
+          }
+        ],
+        "proposed_distribution": []
+      }
+    }
+  }
+}

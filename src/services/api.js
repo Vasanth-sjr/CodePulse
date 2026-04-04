@@ -155,3 +155,70 @@ export async function testEmailWebhook() {
 export async function healthCheck() {
   return request('GET', '/health');
 }
+
+/**
+ * Predictive Risk & Intervention endpoints.
+ */
+export async function getRiskTrajectory() {
+  return request('GET', '/risk/trajectory');
+}
+
+export async function getRiskFlags() {
+  return request('GET', '/risk/flags');
+}
+
+export async function getTechDebt() {
+  return request('GET', '/techdebt');
+}
+
+export async function getInterventions() {
+  return request('GET', '/interventions');
+}
+
+export async function getManagerDashboard() {
+  return request('GET', '/dashboard/manager');
+}
+
+export async function runSimulation(body) {
+  return request('POST', '/simulation/run', body);
+}
+
+export async function getSimulationHistory() {
+  return request('GET', '/simulation/history');
+}
+
+export async function parseStandup(transcript, developer) {
+  return request('POST', '/standup/voice', { transcript, developer });
+}
+
+export async function createMemorySnapshot(data) {
+  return request('POST', '/memory/snapshot', data);
+}
+
+export async function searchMemory(query) {
+  return request('GET', `/memory/search?q=${encodeURIComponent(query)}`);
+}
+
+export async function getModuleMemory(module) {
+  return request('GET', `/memory/${encodeURIComponent(module)}`);
+}
+
+export async function generateRetro() {
+  return request('GET', '/retro/generate');
+}
+
+export async function analyzeCommit(commitSha) {
+  return request('POST', '/commits/analyze', { commit_sha: commitSha });
+}
+
+export async function getDeveloperGrowth(username) {
+  return request('GET', `/developers/${encodeURIComponent(username)}/growth`);
+}
+
+export async function testConfig() {
+  return request('GET', '/config/test');
+}
+
+export async function triggerReport() {
+  return request('GET', '/reports/trigger');
+}

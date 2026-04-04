@@ -113,4 +113,5 @@ class JiraConnectRequest(BaseModel):
     email: str
     apiToken: str
     projectKey: Optional[str] = None
+    boardId: Optional[str] = None  # Jira board ID for sprint endpoints
     repo_id: int

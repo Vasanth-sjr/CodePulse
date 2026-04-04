@@ -11,7 +11,13 @@ const navItems = [
   { id: 'risk', icon: '⚠️', label: 'Risk' },
   { id: 'recommendations', icon: '💡', label: 'Actions' },
   { id: 'plan-reality', icon: '📋', label: 'Plan vs Real' },
+  { id: 'divider', icon: '', label: '' },
+  { id: 'predictive-risk', icon: '🎯', label: 'Predictive Risk' },
+  { id: 'manager-hub', icon: '📊', label: 'Manager Hub' },
+  { id: 'simulator', icon: '🧪', label: 'Simulator' },
+  { id: 'interventions', icon: '🤖', label: 'Interventions' },
 ];
+
 
 function Sidebar({ onSetup }) {
   const { theme } = useTheme();
@@ -43,6 +49,9 @@ function Sidebar({ onSetup }) {
       {/* Navigation */}
       <nav className="flex-1 px-2 py-3 space-y-1 overflow-hidden">
         {navItems.map((item) => (
+          item.id === 'divider' ? (
+            <div key="divider" className={`my-2 mx-3 border-t ${isDark ? 'border-white/5' : 'border-black/5'}`} />
+          ) : (
           <NavLink
             key={item.id}
             to={`/dashboard/${item.id}`}
@@ -60,7 +69,9 @@ function Sidebar({ onSetup }) {
               {item.label}
             </span>
           </NavLink>
+          )
         ))}
+
 
         {/* Setup button */}
         {onSetup && (

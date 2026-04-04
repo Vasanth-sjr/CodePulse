@@ -18,6 +18,10 @@ const RequirementMapping = lazy(() => import('./pages/RequirementMapping'));
 const KnowledgeRisk = lazy(() => import('./pages/KnowledgeRisk'));
 const Recommendations = lazy(() => import('./pages/Recommendations'));
 const PlanVsReality = lazy(() => import('./pages/PlanVsReality'));
+const PredictiveRisk = lazy(() => import('./pages/PredictiveRisk'));
+const ManagerDashboard = lazy(() => import('./pages/ManagerDashboard'));
+const SimulationPage = lazy(() => import('./pages/Simulation'));
+const InterventionsPage = lazy(() => import('./pages/Interventions'));
 
 function DashboardLayout() {
   const location = useLocation();
@@ -65,6 +69,10 @@ function DashboardLayout() {
                 <Route path="risk" element={<KnowledgeRisk />} />
                 <Route path="recommendations" element={<Recommendations />} />
                 <Route path="plan-reality" element={<PlanVsReality />} />
+                <Route path="predictive-risk" element={<PredictiveRisk />} />
+                <Route path="manager-hub" element={<ManagerDashboard />} />
+                <Route path="simulator" element={<SimulationPage />} />
+                <Route path="interventions" element={<InterventionsPage />} />
                 <Route path="*" element={<Navigate to="overview" replace />} />
               </Routes>
             </Suspense>

@@ -123,9 +123,26 @@ class KnowledgeRisk(Base):
     repository = relationship("Repository", back_populates="risks")
 
 
+class JiraConfig(Base):
+    """Stores Jira credentials per-repo so predictive services can read them."""
+    __tablename__ = "jira_configs"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    repo_id = Column(Integer, ForeignKey("repositories.id"), nullable=False, unique=True)
+    base_url = Column(String(500), nullable=False)
+    email = Column(String(200), nullable=False)
+    api_token = Column(String(500), nullable=False)
+    project_key = Column(String(50), nullable=True)
+    board_id = Column(String(50), nullable=True)  # Jira board ID for sprint endpoints
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    repository = relationship("Repository", back_populates="jira_config")
+
+
 # Update Repository relationships
 Repository.developer_scores = relationship("DeveloperScore", back_populates="repository", cascade="all, delete-orphan")
 Repository.risks = relationship("KnowledgeRisk", back_populates="repository", cascade="all, delete-orphan")
+Repository.jira_config = relationship("JiraConfig", back_populates="repository", uselist=False, cascade="all, delete-orphan")
 Requirement.mappings = relationship("RequirementCommitMapping", back_populates="requirement", cascade="all, delete-orphan")
 
 
