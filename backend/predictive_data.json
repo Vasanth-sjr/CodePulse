@@ -370,6 +370,1043 @@
         ],
         "proposed_distribution": []
       }
+    },
+    "6": {
+      "simulation_id": "1e601c03-619e-4fde-b356-69b02bf882ac",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:05.298494Z",
+      "result": {
+        "simulation_id": "1e601c03-619e-4fde-b356-69b02bf882ac",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:05.298494Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "7": {
+      "simulation_id": "c7f1977f-b352-4529-b263-eb0432293b88",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:14.304859Z",
+      "result": {
+        "simulation_id": "c7f1977f-b352-4529-b263-eb0432293b88",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:14.304859Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "8": {
+      "simulation_id": "46024092-2838-4a6e-92de-35f768258328",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:15.502393Z",
+      "result": {
+        "simulation_id": "46024092-2838-4a6e-92de-35f768258328",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:15.502393Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "9": {
+      "simulation_id": "56ab513a-f9df-4450-b907-11138e7a2edb",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:16.438276Z",
+      "result": {
+        "simulation_id": "56ab513a-f9df-4450-b907-11138e7a2edb",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:16.438276Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "10": {
+      "simulation_id": "e6500012-3797-4da8-93ac-6ce7905ab5f0",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:16.597721Z",
+      "result": {
+        "simulation_id": "e6500012-3797-4da8-93ac-6ce7905ab5f0",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:16.597721Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "11": {
+      "simulation_id": "165cb8ed-661b-4447-980d-54fa39fc56b9",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:16.729821Z",
+      "result": {
+        "simulation_id": "165cb8ed-661b-4447-980d-54fa39fc56b9",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:16.729821Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "12": {
+      "simulation_id": "008a3477-94db-4f00-b392-dd9f1fb63132",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:16.878923Z",
+      "result": {
+        "simulation_id": "008a3477-94db-4f00-b392-dd9f1fb63132",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:16.878923Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "13": {
+      "simulation_id": "75871b7a-4c51-4b9f-a06e-33a69a59dde9",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:17.028667Z",
+      "result": {
+        "simulation_id": "75871b7a-4c51-4b9f-a06e-33a69a59dde9",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:17.028667Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "14": {
+      "simulation_id": "8b71bd2f-0bb1-4325-a7f8-f9ecf8e2f30b",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:17.175658Z",
+      "result": {
+        "simulation_id": "8b71bd2f-0bb1-4325-a7f8-f9ecf8e2f30b",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:17.175658Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "15": {
+      "simulation_id": "7ab78730-d450-4d25-8cb4-d1210aa176d7",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:17.391083Z",
+      "result": {
+        "simulation_id": "7ab78730-d450-4d25-8cb4-d1210aa176d7",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:17.391083Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "16": {
+      "simulation_id": "d91fdd61-142f-4554-84a7-075be67464a3",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:18.451025Z",
+      "result": {
+        "simulation_id": "d91fdd61-142f-4554-84a7-075be67464a3",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:18.451025Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "17": {
+      "simulation_id": "fad75a7f-d168-46e7-9f72-2254bd0f4f20",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:18.595160Z",
+      "result": {
+        "simulation_id": "fad75a7f-d168-46e7-9f72-2254bd0f4f20",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:18.595160Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "18": {
+      "simulation_id": "e02ba47c-babd-4471-b832-acaff46cd99d",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:18.763398Z",
+      "result": {
+        "simulation_id": "e02ba47c-babd-4471-b832-acaff46cd99d",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:18.763398Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "19": {
+      "simulation_id": "5d63fb11-d94e-4e42-936c-804932401c8e",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:18.896199Z",
+      "result": {
+        "simulation_id": "5d63fb11-d94e-4e42-936c-804932401c8e",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:18.896199Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "20": {
+      "simulation_id": "8bc22441-741f-4b6c-957d-b515997f2ac5",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodon",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:19.113532Z",
+      "result": {
+        "simulation_id": "8bc22441-741f-4b6c-957d-b515997f2ac5",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:19.113532Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "21": {
+      "simulation_id": "a045091f-f1d1-4787-9cbf-a558f5328727",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodo",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:22.937783Z",
+      "result": {
+        "simulation_id": "a045091f-f1d1-4787-9cbf-a558f5328727",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:22.937783Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
+    },
+    "22": {
+      "simulation_id": "2606028d-67f2-4e22-9142-8079b345a9f6",
+      "scenario": "dev_leaves",
+      "params": {
+        "dev_name": " nobodxbodo",
+        "requirement_title": null,
+        "complexity": "medium"
+      },
+      "ran_at": "2026-04-05T03:27:23.948036Z",
+      "result": {
+        "simulation_id": "2606028d-67f2-4e22-9142-8079b345a9f6",
+        "scenario_applied": "dev_leaves",
+        "applied_at": "2026-04-05T03:27:23.948036Z",
+        "recalculated_risk_scores": [
+          {
+            "ticket_id": "CP-01",
+            "title": "Refactor root module for scalability",
+            "old_probability": 88,
+            "new_probability": 88,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-02",
+            "title": "Add unit tests for root service",
+            "old_probability": 86,
+            "new_probability": 86,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-03",
+            "title": "Fix edge case in root error handling",
+            "old_probability": 69,
+            "new_probability": 69,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-04",
+            "title": "Implement caching layer for root",
+            "old_probability": 96,
+            "new_probability": 96,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-05",
+            "title": "Improve API response time in root",
+            "old_probability": 90,
+            "new_probability": 90,
+            "delta": 0
+          },
+          {
+            "ticket_id": "CP-06",
+            "title": "Add input validation to root endpoints",
+            "old_probability": 85,
+            "new_probability": 85,
+            "delta": 0
+          }
+        ],
+        "new_flags": [],
+        "proposed_distribution": []
+      }
     }
   }
 }
